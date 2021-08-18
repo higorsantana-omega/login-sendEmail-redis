@@ -4,7 +4,7 @@ interface IUser {
   data: string
 }
 
-let registrationMail = {
+export default {
   key: 'RegistrationMail',
   options: {
     delay: 5000,
@@ -21,5 +21,3 @@ let registrationMail = {
     })
   }
 }
-
-export { registrationMail }
