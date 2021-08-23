@@ -1,12 +1,13 @@
 {
-  "name": "login-sendEmail-redis",
+  "name": "login-send-email-redis",
   "version": "1.0.0",
   "main": "index.js",
   "author": "higorsantana-omega <70420430+higorsantana-omega@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules --respawn src/server.ts",
-    "queue": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules --respawn src/queue.ts"
+    "dev": "npm-run-all dev:server dev:queue",
+    "dev:server": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules --respawn src/server.ts",
+    "dev:queue": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules --respawn src/queue.ts"
   },
   "dependencies": {
     "bull": "^3.28.1",
@@ -15,7 +16,8 @@
     "express": "^4.17.1",
     "nodemailer": "^6.6.3",
     "password-generator": "^2.3.2",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "yarn-run-all": "^3.1.1"
   },
   "devDependencies": {
     "@types/bull": "^3.15.3",
