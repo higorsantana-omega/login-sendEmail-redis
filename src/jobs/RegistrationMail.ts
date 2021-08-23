@@ -19,5 +19,7 @@ export default {
       subject: 'Cadastro de usuário',
       html: `Olá, ${user.name}, bem-vindo ao meu teste`
     })
+
+    console.log(user)
   }
 }

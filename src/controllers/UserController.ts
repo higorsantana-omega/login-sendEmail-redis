@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import passwordGenerator from 'password-generator'
 
+import Queue from "../lib/Queue";
 
 class UserController {
   async store(req: Request, res: Response): Promise<void> {
@@ -12,7 +13,9 @@ class UserController {
       password: passwordGenerator(10, false)
     }
 
-    res.status(201).json(user)
+    await Queue.add('RegistrationMail', { user })
+
+    res.json(user)
   }
 }
 
